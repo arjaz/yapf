@@ -4,5 +4,5 @@ from .models import Job
 
 
 def index(request):
-    jobs = Job.objects
+    jobs = Job.objects.all()
     return render(request, 'jobs/index.html', {'jobs': jobs})

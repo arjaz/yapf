@@ -1,6 +1,6 @@
-
 <!doctype html>
 <html lang="en">
+{% load staticfiles %}
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -37,6 +37,7 @@
           <div class="navbar-nav ml-auto">
             <a class="nav-item nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
             <a class="nav-item nav-link" href="https://github.com/arjaz">Github</a>
+            <a class="nav-item nav-link" href="{% static 'resume.pdf' %}">Resume</a>
             <a class="nav-item nav-link active" href="#">Blog</a>
           </div>
         </div>
@@ -61,7 +62,8 @@
             <div class="card-body">
               <p class="text-justify card-text">{{ blog.summary }}</p>
               <p class="font-weight-lighter card-text">{{ blog.pub_date_cust }}</p>
-              <a class="btn btn-primary" href="#">Details</a>
+              <a class="btn btn-primary" href="{% url 'detail' blog.pk %}">Details</a>
+
             </div>
           </div>
         </div>

@@ -35,48 +35,33 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav ml-auto">
-            <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
             <a class="nav-item nav-link" href="https://github.com/arjaz">Github</a>
             <a class="nav-item nav-link" href="{% static 'resume.pdf' %}">Resume</a>
-            <a class="nav-item nav-link" href="{% url 'blogs' %}">Blog</a>
+            <a class="nav-item nav-link active" href="{% url 'blogs' %}">Blog</a>
           </div>
         </div>
       </nav>
     </header>
 
     <main role="main">
+      <div class="container">
+        <h1 class="text-center pt-3 pb-3">Blog</h1>
 
-      <section class="jumbotron text-center">
-        <div class="container">
-          <h1 class="jumbotron-heading">Yet another portfolio</h1>
-          <p class="lead text-muted">A list of some projects made by me.</p>
-          <p>
-          <a href="mailto:arjaz@protonmail.com" class="btn btn-primary my-2">Email</a>
-          </p>
-        </div>
-      </section>
-
-      <div class="album py-5 bg-light">
-        <div class="container">
-          <div class="row">
-
-            {% for job in jobs %}
-
-            <div class="col-md-4">
-              <div class="card mb-4 shadow-sm">
-                <img class="card-img-top" src="{{ job.image.url }}" alt="">
-                <div class="card-body">
-                  <p class="card-text">{{ job.summary }}</p>
-                </div>
-              </div>
+        <div class="">
+          <div class="card mb-4 shadow-sm">
+            <div class="card-header font-weight-bold">
+              {{ blog.title }}
             </div>
-
-            {% endfor %}
-
+            <img class="card-img-top p-2" src="{{ blog.image.url }}" alt="">
+            <div class="card-body">
+              <p class="text-justify card-text">{{ blog.body }}</p>
+              <p class="font-weight-lighter card-text">{{ blog.pub_date_cust }}</p>
+            </div>
           </div>
         </div>
-      </div>
 
+      </div>
     </main>
 
     <footer class="text-muted">
